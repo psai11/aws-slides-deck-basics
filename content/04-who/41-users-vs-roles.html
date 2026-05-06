@@ -1,0 +1,58 @@
+<!--
+  Slide 41 · Users vs roles
+  Chapter: 4 · Who's allowed what
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Users vs roles</span>
+      <span class="folio">41</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:22px;justify-content:center">
+
+    <div class="eyebrow">Disambiguation</div>
+    <h2 style="max-width:1000px">User = "<em class="kicker" style="color:var(--accent)">who they are</em>." Role = "<em class="kicker" style="color:var(--accent)">what can be done</em>."</h2>
+
+    <svg viewBox="0 0 1080 280" width="100%" role="img" aria-label="Comparison table users vs roles">
+      <line x1="40" y1="40" x2="1040" y2="40" stroke="var(--ink)" stroke-width="1.4"/>
+      <line x1="40" y1="80" x2="1040" y2="80" stroke="var(--rule)"/>
+      <line x1="40" y1="130" x2="1040" y2="130" stroke="var(--rule)"/>
+      <line x1="40" y1="180" x2="1040" y2="180" stroke="var(--rule)"/>
+      <line x1="40" y1="230" x2="1040" y2="230" stroke="var(--rule)"/>
+      <line x1="40" y1="270" x2="1040" y2="270" stroke="var(--ink)" stroke-width="1.4"/>
+
+      <text x="60"  y="68" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="var(--muted)">TOPIC</text>
+      <text x="420" y="68" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="var(--accent)">User</text>
+      <text x="740" y="68" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="var(--accent)">Role</text>
+
+      <text x="60"  y="110" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--muted)">purpose</text>
+      <text x="420" y="110" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">persistent identity</text>
+      <text x="740" y="110" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">delegation, temporary access</text>
+
+      <text x="60"  y="160" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--muted)">creds</text>
+      <text x="420" y="160" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">password + access keys</text>
+      <text x="740" y="160" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">temporary, short-lived</text>
+
+      <text x="60"  y="210" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--muted)">sign-in</text>
+      <text x="420" y="210" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">console + CLI</text>
+      <text x="740" y="210" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">you assume it</text>
+
+      <text x="60"  y="260" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--muted)">use for</text>
+      <text x="420" y="260" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">named humans (sparingly)</text>
+      <text x="740" y="260" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">EC2 / Lambda / cross-account</text>
+    </svg>
+
+    <blockquote style="font-size:24px;color:var(--ink)">
+      For applications, prefer <em>roles</em>. For humans, federated sign-in beats IAM users.
+    </blockquote>
+  </div>
+
+  <aside class="notes">
+    The disambiguation slide. Most common mistake: IAM user access keys in code
+    where a role would do.
+  </aside>
+</section>

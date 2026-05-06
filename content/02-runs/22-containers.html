@@ -1,0 +1,55 @@
+<!--
+  Slide 22 · Containers — ECS / EKS / Fargate
+  Chapter: 2 · What runs in there
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 2</div>
+    <div class="right">
+      <span>Containers</span>
+      <span class="folio">22</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center">
+
+    <div class="eyebrow">Containers on AWS</div>
+    <h2 style="max-width:980px">Three flavours, one trick.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);
+                  border-radius:10px;display:flex;flex-direction:column;gap:10px">
+        <h3>ECS</h3>
+        <p style="font-size:17px">AWS-native scheduling. Tasks &amp; services.</p>
+        <code style="background:var(--paper-2);font-size:13px">aws-native</code>
+      </div>
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);
+                  border-radius:10px;display:flex;flex-direction:column;gap:10px">
+        <h3>EKS</h3>
+        <p style="font-size:17px">Managed Kubernetes. Standard K8s API.</p>
+        <code style="background:var(--paper-2);font-size:13px">k8s-managed</code>
+      </div>
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--accent);
+                  border-radius:10px;display:flex;flex-direction:column;gap:10px">
+        <h3 style="color:var(--accent)">Fargate</h3>
+        <p style="font-size:17px">Serverless capacity. Pairs with ECS or EKS.</p>
+        <code style="background:var(--paper-2);font-size:13px">capacity-model</code>
+      </div>
+    </div>
+
+    <hr class="rule short">
+
+    <blockquote style="font-size:26px;color:var(--ink)">
+      Fargate is the <em>how</em>, not the <em>what</em> &mdash; pair it with ECS or EKS.
+    </blockquote>
+    <div class="callout"><span class="label">tip</span>
+      Beginners → ECS + Fargate. Teams already on K8s → EKS.
+    </div>
+  </div>
+
+  <aside class="notes">
+    The triangle confuses people. ECS/EKS are orchestrators; Fargate is a capacity
+    model. You don't pick between Fargate and ECS — you pick ECS *with* Fargate.
+  </aside>
+</section>

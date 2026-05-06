@@ -1,0 +1,42 @@
+<!--
+  Slide 48 · Replication — ongoing copies, not snapshots
+  Chapter: 5 · Staying up & coming back
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>Replication</span>
+      <span class="folio">48</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center">
+
+    <div class="eyebrow">Backups vs replication</div>
+    <h2 style="max-width:980px">Replication ≠ backups. <em class="kicker" style="color:var(--accent)">Both</em> matter.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1080px;margin-top:8px">
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);border-radius:10px;display:flex;flex-direction:column;gap:12px">
+        <div class="eyebrow accent">backups</div>
+        <h3>Point-in-time</h3>
+        <p style="font-size:18px">Rewind to "yesterday" or "last week." Protect against <em>oops-deletes</em> and corruption.</p>
+      </div>
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);border-radius:10px;display:flex;flex-direction:column;gap:12px">
+        <div class="eyebrow accent">replication</div>
+        <h3>Running copy</h3>
+        <p style="font-size:18px">Lag = your <em>RPO floor</em>. S3 SRR/CRR &middot; RDS read replicas &middot; Aurora Global &middot; DynamoDB global tables.</p>
+      </div>
+    </div>
+
+    <blockquote style="font-size:26px;color:var(--ink);margin-top:8px">
+      Replication narrows RPO. <em>Backups</em> protect against oops-deletes.
+    </blockquote>
+  </div>
+
+  <aside class="notes">
+    Trap: thinking replication replaces backups. It doesn't — a replicated bad
+    delete is still a bad delete. Both.
+  </aside>
+</section>

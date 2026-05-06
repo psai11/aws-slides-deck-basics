@@ -1,0 +1,44 @@
+<!--
+  Slide 47 · Backups
+  Chapter: 5 · Staying up & coming back
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>Backups</span>
+      <span class="folio">47</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center">
+
+    <div class="eyebrow">Point-in-time copies</div>
+    <h2 style="max-width:980px">Backups are point-in-time copies you can <em class="kicker" style="color:var(--accent)">rewind to</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;max-width:1080px;align-items:start">
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;color:var(--ink-2);font-size:19px">
+        <li>&middot;&nbsp; <strong>Databases</strong> &mdash; RDS automated + manual snapshots; native tools for DBs on EC2.</li>
+        <li>&middot;&nbsp; <strong>Disks</strong> &mdash; EBS snapshots (incremental, Regional, stored in S3 behind the scenes).</li>
+        <li>&middot;&nbsp; <strong>Objects</strong> &mdash; S3 versioning + replication + lifecycle.</li>
+        <li>&middot;&nbsp; <strong>Centralised</strong> &mdash; AWS Backup schedules across resources and accounts.</li>
+      </ul>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="callout good"><span class="label">habits</span>
+          Back up to your <em>RPO</em>. Retain for compliance.
+          Separate copies (AZ / Region / account). <em>Test restores.</em> Encrypt.
+        </div>
+        <blockquote style="font-size:24px;color:var(--ink);margin-top:6px">
+          A backup you've never restored is a <em>promise</em>, not a proof.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    "Test restores" is the point to drive home. Most outages-during-recovery happen
+    because someone discovers the backup is unrestorable on the worst day.
+  </aside>
+</section>

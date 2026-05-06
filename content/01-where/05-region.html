@@ -1,0 +1,46 @@
+<!--
+  Slide 05 · Region
+  Chapter: 1 · Where things live
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 1</div>
+    <div class="right">
+      <span>Region</span>
+      <span class="folio">05</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:36px;justify-content:center">
+
+    <div class="eyebrow">Region</div>
+    <h2 style="max-width:980px">A Region is the geographic area you pick.</h2>
+    <blockquote style="font-size:34px;color:var(--ink-2);max-width:880px">
+      Region = the city <em>metro area.</em>
+    </blockquote>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1040px">
+      <div class="callout">
+        <span class="label">choose</span>
+        You pick one in the console &mdash;
+        <code>us-east-1</code>, <code>eu-west-1</code>, <code>ap-northeast-1</code>.
+      </div>
+      <div class="callout">
+        <span class="label">tied to</span>
+        Most resources (VPC, EC2, RDS) are <em>regional</em>. Created in &mdash;
+        and tied to &mdash; that Region.
+      </div>
+      <div class="callout">
+        <span class="label">varies</span>
+        Pricing, service availability, and latency to your users all
+        differ Region by Region.
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    The hook is "city metro area." Picking a Region is one of the first decisions
+    and it has compliance and latency implications.
+  </aside>
+</section>

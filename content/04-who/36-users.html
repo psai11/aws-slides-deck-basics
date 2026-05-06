@@ -1,0 +1,36 @@
+<!--
+  Slide 36 · Users — a person or named program
+  Chapter: 4 · Who's allowed what
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Users</span>
+      <span class="folio">36</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:28px;justify-content:center">
+
+    <div class="eyebrow">IAM users</div>
+    <h2 style="max-width:980px">An IAM user is a <em class="kicker" style="color:var(--accent)">named identity</em>.</h2>
+
+    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;
+               color:var(--ink-2);font-size:20px;max-width:880px">
+      <li>&middot;&nbsp; Unique name in your account.</li>
+      <li>&middot;&nbsp; Console password (with MFA) and/or <em>access keys</em> for CLI/SDK.</li>
+      <li>&middot;&nbsp; Access keys are <em>long-lived secrets</em> &mdash; leak = blast radius.</li>
+    </ul>
+
+    <div class="callout warn" style="max-width:880px"><span class="label">rule</span>
+      Prefer <strong>roles</strong> over IAM users for applications. Always.
+    </div>
+  </div>
+
+  <aside class="notes">
+    IAM users: starting point and wrong default for apps. Users for humans,
+    sparingly; roles for everything else.
+  </aside>
+</section>

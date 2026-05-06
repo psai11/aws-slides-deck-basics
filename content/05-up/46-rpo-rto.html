@@ -1,0 +1,72 @@
+<!--
+  Slide 46 · RPO & RTO — define these first
+  Chapter: 5 · Staying up & coming back
+  Widget: rpoRtoSliders — drag both, recommendation updates.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>RPO &amp; RTO</span>
+      <span class="folio">46</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:64px 80px 80px;
+              display:grid;grid-template-rows:auto auto 1fr;gap:14px">
+
+    <div style="display:flex;align-items:baseline;gap:24px">
+      <div class="eyebrow">RPO &amp; RTO</div>
+      <h3>Two numbers, set <em class="kicker" style="color:var(--accent)">before</em> you build.</h3>
+    </div>
+
+    <svg id="rpo-rto-svg" viewBox="0 0 1080 200" width="100%" role="img"
+         aria-label="Timeline with last-backup, incident, service-back marks; RPO + RTO brackets">
+      <line x1="60" y1="120" x2="1020" y2="120" stroke="var(--ink)" stroke-width="1.4"/>
+      <!-- Marks -->
+      <line x1="200" y1="100" x2="200" y2="140" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="200" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">LAST BACKUP</text>
+
+      <line x1="540" y1="90" x2="540" y2="150" stroke="var(--warn)" stroke-width="2"/>
+      <text x="540" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="var(--warn)">INCIDENT</text>
+
+      <line x1="900" y1="100" x2="900" y2="140" stroke="var(--good)" stroke-width="1.6"/>
+      <text x="900" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--good)" letter-spacing="2">SERVICE BACK</text>
+
+      <!-- Brackets -->
+      <g id="rpo-bracket" transform-origin="200 60">
+        <line x1="200" y1="60" x2="540" y2="60" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="200" y1="55" x2="200" y2="65" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="540" y1="55" x2="540" y2="65" stroke="var(--accent)" stroke-width="2"/>
+      </g>
+      <text x="370" y="50" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700" font-size="16" fill="var(--accent)">RPO · data loss window</text>
+
+      <g id="rto-bracket" transform-origin="540 60">
+        <line x1="540" y1="60" x2="900" y2="60" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="540" y1="55" x2="540" y2="65" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="900" y1="55" x2="900" y2="65" stroke="var(--accent)" stroke-width="2"/>
+      </g>
+      <text x="720" y="50" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700" font-size="16" fill="var(--accent)">RTO · downtime window</text>
+    </svg>
+
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start;margin-top:6px">
+      <div data-widget="rpoRtoSliders"
+           data-widget-options='{"target":"#rpo-rto-svg"}'></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <blockquote style="font-size:22px;color:var(--ink);max-width:440px">
+          RPO = how stale can data be?<br>
+          RTO = how long can recovery take?
+        </blockquote>
+        <div class="callout warn"><span class="label">rule</span>
+          Set these <em>with the business</em> &mdash; not in a vacuum.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Not engineering numbers — business decisions you support with engineering. If
+    you don't set them, your architecture sets them by accident. Drag the sliders
+    to give the audience the four DR strategies via play before the spectrum slide.
+  </aside>
+</section>

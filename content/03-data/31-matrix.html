@@ -1,0 +1,73 @@
+<!--
+  Slide 31 · The matrix — S3 / EBS / EFS at a glance
+  Chapter: 3 · Where data sits
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 3</div>
+    <div class="right">
+      <span>Storage matrix</span>
+      <span class="folio">31</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:18px;justify-content:center">
+
+    <div class="eyebrow">Cheat sheet</div>
+    <h2 style="max-width:980px">Three shapes, side by side.</h2>
+
+    <svg viewBox="0 0 1080 360" width="100%" role="img"
+         aria-label="Comparison matrix for S3, EBS, EFS">
+      <!-- ruled lines -->
+      <line x1="40" y1="60" x2="1040" y2="60" stroke="var(--ink)" stroke-width="1.4"/>
+      <line x1="40" y1="100" x2="1040" y2="100" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="40" y1="140" x2="1040" y2="140" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="40" y1="180" x2="1040" y2="180" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="40" y1="220" x2="1040" y2="220" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="40" y1="260" x2="1040" y2="260" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="40" y1="300" x2="1040" y2="300" stroke="var(--ink)" stroke-width="1.4"/>
+
+      <!-- column heads -->
+      <text x="60"  y="86" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="var(--muted)">ROW</text>
+      <text x="340" y="86" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="var(--accent)">S3</text>
+      <text x="600" y="86" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="var(--accent)">EBS</text>
+      <text x="860" y="86" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="var(--accent)">EFS</text>
+
+      <!-- rows -->
+      <text x="60"  y="126" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1" fill="var(--muted)">type</text>
+      <text x="340" y="126" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">object</text>
+      <text x="600" y="126" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">block</text>
+      <text x="860" y="126" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">file (NFS)</text>
+
+      <text x="60"  y="166" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1" fill="var(--muted)">scope</text>
+      <text x="340" y="166" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">Regional</text>
+      <text x="600" y="166" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">one AZ</text>
+      <text x="860" y="166" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">Regional (or One Zone)</text>
+
+      <text x="60"  y="206" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1" fill="var(--muted)">access</text>
+      <text x="340" y="206" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">HTTPS API / SDK</text>
+      <text x="600" y="206" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">attached to one EC2</text>
+      <text x="860" y="206" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">mounted by many EC2s</text>
+
+      <text x="60"  y="246" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1" fill="var(--muted)">durability</text>
+      <text x="340" y="246" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">11 nines (Standard)</text>
+      <text x="600" y="246" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">replicated within AZ</text>
+      <text x="860" y="246" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">across AZs (Regional)</text>
+
+      <text x="60"  y="286" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1" fill="var(--muted)">use for</text>
+      <text x="340" y="286" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">backups, blobs, uploads</text>
+      <text x="600" y="286" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">DBs, boot disks</text>
+      <text x="860" y="286" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">shared content, NFS apps</text>
+    </svg>
+
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--muted);font-size:18px">
+      Memorise the rows, not the prices.
+    </p>
+  </div>
+
+  <aside class="notes">
+    The cheat sheet. Audience should leave with this in their head. Rows are what
+    you reason about; prices change.
+  </aside>
+</section>

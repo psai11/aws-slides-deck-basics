@@ -1,0 +1,86 @@
+<!--
+  Slide 42 · Least privilege — deny beats allow
+  Chapter: 4 · Who's allowed what
+  Dual-widget: svgStepReveal builds the triangle; permissionEvaluator demos.
+  Note distinct data-widget markers — they don't share click handlers.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Least privilege</span>
+      <span class="folio">42</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:64px 80px 80px;
+              display:grid;grid-template-rows:auto 1fr auto;gap:14px">
+
+    <div style="display:flex;align-items:baseline;gap:24px">
+      <div class="eyebrow">Least privilege</div>
+      <h3>Grant only what's needed. <em class="kicker" style="color:var(--accent)">Deny wins ties.</em></h3>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center">
+      <svg id="iam-triangle-svg" viewBox="0 0 480 360" width="100%" role="img"
+           aria-label="IAM triangle built up to deny-margin">
+        <g id="principal">
+          <circle cx="240" cy="60" r="40" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+          <text x="240" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="var(--ink)">Principal</text>
+          <text x="240" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">user · role</text>
+        </g>
+        <g id="policy">
+          <rect x="60" y="220" width="160" height="80" rx="10"
+                fill="color-mix(in srgb, var(--accent) 12%, var(--paper))"
+                stroke="var(--accent)" stroke-width="2"/>
+          <text x="140" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="var(--accent)">Policy</text>
+          <text x="140" y="274" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-3)">statements</text>
+          <line x1="240" y1="100" x2="160" y2="220" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arr42)"/>
+        </g>
+        <g id="resource">
+          <rect x="260" y="220" width="160" height="80" rx="10" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+          <text x="340" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="var(--ink)">Resource</text>
+          <text x="340" y="274" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">arn:aws:…</text>
+          <line x1="220" y1="260" x2="260" y2="260" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arr42)"/>
+        </g>
+        <g id="deny-margin">
+          <rect x="290" y="320" width="170" height="36" rx="6"
+                fill="color-mix(in srgb, var(--warn) 14%, transparent)"
+                stroke="var(--warn)" stroke-width="1.4"/>
+          <text x="375" y="343" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700" font-size="13" fill="var(--warn-deep)">deny beats allow</text>
+        </g>
+        <defs>
+          <marker id="arr42" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/>
+          </marker>
+        </defs>
+      </svg>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;color:var(--ink-2);font-size:18px">
+          <li>&middot;&nbsp; Start narrow, widen on need.</li>
+          <li>&middot;&nbsp; Scope by ARN, not wildcard.</li>
+          <li>&middot;&nbsp; Explicit deny always wins.</li>
+        </ul>
+        <div class="callout warn" style="font-size:18px"><span class="label">smell</span>
+          <code>*:*</code> is a smell, not a starting point.
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+      <!-- Two distinct markers, two factories. They share the same SVG via id
+           lookup but never share a click handler. -->
+      <div data-widget="svgStepReveal"
+           data-widget-options='{"target":"#iam-triangle-svg","steps":["#principal","#policy","#resource","#deny-margin"]}'></div>
+      <div data-widget="permissionEvaluator"
+           data-widget-options='{"target":"#iam-triangle-svg"}'></div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    "Deny beats allow" is the safety mechanism — how SCPs enforce floors. Build the
+    triangle in stages first (svgStepReveal), then run the evaluator to demonstrate
+    Allow + Deny → Final Deny.
+  </aside>
+</section>

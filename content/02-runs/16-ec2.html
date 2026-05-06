@@ -1,0 +1,41 @@
+<!--
+  Slide 16 · EC2 — a VM you operate
+  Chapter: 2 · What runs in there
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 2</div>
+    <div class="right">
+      <span>EC2</span>
+      <span class="folio">16</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:28px;justify-content:center">
+
+    <div class="eyebrow">Elastic Compute Cloud</div>
+    <h2 style="max-width:980px">EC2 is a virtual machine. You <em class="kicker" style="color:var(--accent)">operate</em> it.</h2>
+    <blockquote style="font-size:30px;color:var(--ink-2);max-width:880px">
+      EC2 = a <em>VM in a datacenter</em>.
+    </blockquote>
+
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:48px;max-width:1080px;align-items:start">
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;
+                 color:var(--ink-2);font-size:20px">
+        <li>&middot;&nbsp; You pick an <em>AMI</em> (boot image) and an <em>instance type</em> (CPU + memory).</li>
+        <li>&middot;&nbsp; Full guest-OS control: install, run long-lived processes, open ports.</li>
+        <li>&middot;&nbsp; You manage patching, scaling, and pay for capacity while it runs.</li>
+      </ul>
+      <div class="margin-note" style="max-width:320px">
+        <strong style="color:var(--ink)">Pricing models —</strong><br>
+        On-Demand &middot; Savings Plans &middot; Reserved &middot; Spot.
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    EC2 is the building block. Everything else in compute is a higher abstraction.
+    If you want a server you SSH into, this is it.
+  </aside>
+</section>

@@ -1,0 +1,42 @@
+<!--
+  Slide 35 · What IAM is
+  Chapter: 4 · Who's allowed what
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>What IAM is</span>
+      <span class="folio">35</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:28px;justify-content:center">
+
+    <div class="eyebrow">Identity &amp; Access Management</div>
+    <h2 style="max-width:980px">IAM is the doorman, <em class="kicker" style="color:var(--accent)">not</em> the data.</h2>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;max-width:1080px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px;color:var(--ink-2);font-size:20px">
+        <p>IAM controls <em>who</em> can do <em>what</em> in your AWS account. It doesn't store application data.</p>
+        <p>Every AWS request &mdash; console click or API call &mdash; passes through IAM.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <blockquote style="font-size:24px;color:var(--ink)">
+          Every AWS request answers a question:<br>
+          <em>is this principal allowed to do this action on this resource?</em>
+        </blockquote>
+        <div class="callout"><span class="label">scope</span>
+          IAM is <em>global</em> &mdash; no Region selection.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    The frame: IAM is an authorization service, not a data store. Every console
+    click and API call passes through it.
+  </aside>
+</section>

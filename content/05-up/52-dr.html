@@ -1,0 +1,91 @@
+<!--
+  Slide 52 · DR — across Regions
+  Chapter: 5 · Staying up & coming back
+  Dual-widget: svgStepReveal builds the picture; regionFailover operates it.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>DR · cross-Region</span>
+      <span class="folio">52</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:48px 60px 64px;
+              display:grid;grid-template-rows:auto 1fr auto;gap:10px">
+
+    <div style="display:flex;align-items:baseline;gap:24px">
+      <div class="eyebrow">Disaster recovery</div>
+      <h3>Recover when a <em class="kicker" style="color:var(--accent)">whole Region</em> is the problem.</h3>
+    </div>
+
+    <svg id="cross-region-dr-svg" viewBox="0 0 1160 480" width="100%" role="img"
+         aria-label="Cross-Region DR with Route 53, primary + secondary, async replication">
+      <!-- DNS / Route 53 globe -->
+      <g id="dns" transform="translate(0 20)">
+        <circle cx="580" cy="50" r="34" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+        <ellipse cx="580" cy="50" rx="34" ry="14" fill="none" stroke="var(--ink)" stroke-width="1"/>
+        <line x1="546" y1="50" x2="614" y2="50" stroke="var(--ink)" stroke-width="1"/>
+        <text x="580" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Route 53</text>
+        <line id="dns-to-primary" x1="560" y1="80" x2="280" y2="180" stroke="var(--good)" stroke-width="2" marker-end="url(#arrDR)"/>
+        <line id="dns-to-secondary" x1="600" y1="80" x2="880" y2="180" stroke="var(--good)" stroke-width="2" marker-end="url(#arrDR)" opacity="0"/>
+      </g>
+
+      <!-- Primary Region -->
+      <g id="primary">
+        <rect x="60" y="180" width="440" height="240" rx="14"
+              fill="color-mix(in srgb, var(--accent) 6%, transparent)"
+              stroke="var(--accent)" stroke-width="2"/>
+        <text x="80" y="208" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--accent)" letter-spacing="2">REGION · us-east-1 (primary)</text>
+        <rect x="180" y="240" width="200" height="60" rx="8" fill="color-mix(in srgb, var(--accent) 12%, var(--paper))" stroke="var(--accent)" stroke-width="1.6"/>
+        <text x="280" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="var(--accent)">app · ALB · DB</text>
+        <text x="280" y="340" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">production traffic</text>
+      </g>
+
+      <!-- Secondary Region -->
+      <g id="secondary">
+        <rect x="660" y="180" width="440" height="240" rx="14"
+              fill="color-mix(in srgb, var(--good) 6%, transparent)"
+              stroke="var(--good)" stroke-width="2"/>
+        <text x="680" y="208" font-family="JetBrains Mono, monospace" font-size="13" fill="var(--good)" letter-spacing="2">REGION · us-west-2 (secondary)</text>
+        <rect x="780" y="240" width="200" height="60" rx="8" fill="color-mix(in srgb, var(--good) 10%, var(--paper))" stroke="var(--good)" stroke-width="1.6"/>
+        <text x="880" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="var(--good)">replica · ready</text>
+        <text x="880" y="340" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">promote on failover</text>
+      </g>
+
+      <!-- Async link -->
+      <g id="async-link">
+        <line x1="500" y1="270" x2="780" y2="270" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrDR)"/>
+        <text x="640" y="258" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--accent)">async replication</text>
+      </g>
+
+      <!-- RPO failover label -->
+      <text id="rpo-failover-label" x="640" y="450" text-anchor="middle"
+            font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700"
+            font-size="15" fill="var(--warn)" opacity="0">RPO at failover ≈ replication lag at the moment of failure</text>
+
+      <defs>
+        <marker id="arrDR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <div style="display:grid;grid-template-columns:auto auto 1fr;gap:24px;align-items:end">
+      <div data-widget="svgStepReveal"
+           data-widget-options='{"target":"#cross-region-dr-svg","steps":["#primary","#secondary","#async-link","#dns"]}'></div>
+      <div data-widget="regionFailover"
+           data-widget-options='{"target":"#cross-region-dr-svg"}'></div>
+      <p class="margin-note" style="margin:0;text-align:right;max-width:none">
+        Async replication. RPO bounded by lag.
+      </p>
+    </div>
+  </div>
+
+  <aside class="notes">
+    DR is what HA isn't. Region-wide events are rare but real. Build the picture in
+    stages — primary, secondary, replication link, then the DNS layer. Then
+    "Fail us-east-1" to demonstrate Route 53 flipping over.
+  </aside>
+</section>

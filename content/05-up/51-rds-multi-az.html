@@ -1,0 +1,41 @@
+<!--
+  Slide 51 · RDS Multi-AZ in practice
+  Chapter: 5 · Staying up & coming back
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>RDS Multi-AZ</span>
+      <span class="folio">51</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:28px;justify-content:center">
+
+    <div class="eyebrow">RDS Multi-AZ</div>
+    <h2 style="max-width:980px">A <em class="kicker" style="color:var(--accent)">synchronous standby</em> in another AZ.</h2>
+
+    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;
+               color:var(--ink-2);font-size:20px;max-width:880px">
+      <li>&middot;&nbsp; Primary in AZ-A, <em>synchronous</em> standby in AZ-B.</li>
+      <li>&middot;&nbsp; Automatic failover on primary failure (DNS swap, ~60&ndash;120s).</li>
+      <li>&middot;&nbsp; Standby is <em>not</em> a read endpoint &mdash; failover only.</li>
+    </ul>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1080px;margin-top:6px">
+      <blockquote style="font-size:24px;color:var(--ink)">
+        One checkbox at create time, <em>lifetime of dividends</em>.
+      </blockquote>
+      <div class="callout warn"><span class="label">don't confuse</span>
+        Read replicas are different &mdash; <em>async</em>, separate endpoint, can be cross-Region.
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Most concrete win in the talk. Checkbox at create time, RDS becomes
+    AZ-resilient. Don't confuse with read replicas — different feature.
+  </aside>
+</section>

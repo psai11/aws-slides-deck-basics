@@ -1,0 +1,47 @@
+<!--
+  Slide 06 · Availability Zone
+  Chapter: 1 · Where things live
+  Widget: counter — counts AZs in us-east-1, lands on 6.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 1</div>
+    <div class="right">
+      <span>Availability Zone</span>
+      <span class="folio">06</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center">
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div class="eyebrow">Availability Zone &mdash; AZ</div>
+      <h2 style="max-width:760px">An AZ is a separate datacenter campus inside that city.</h2>
+      <blockquote style="font-size:30px;color:var(--ink-2)">
+        AZ = separate datacenter <em>campus</em>.
+      </blockquote>
+
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;
+                 max-width:720px;color:var(--ink-2);font-size:20px">
+        <li>&middot;&nbsp; Independent power, cooling, networking.</li>
+        <li>&middot;&nbsp; Low-latency links between AZs in the same Region.</li>
+        <li>&middot;&nbsp; Names like <code>us-east-1a</code>, <code>1b</code>, <code>1c</code> &mdash; <em>account-scoped</em>.</li>
+      </ul>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+      <div data-widget="counter"
+           data-widget-options='{"start":0,"max":6,"label":"AZs in this Region"}'></div>
+      <p class="margin-note">
+        <code>us-east-1</code> isn't one thing &mdash; it's six failure-isolated
+        datacenter groupings. That's the basis of HA inside a Region.
+      </p>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Click to 6 as you talk. The point is that us-east-1 isn't one thing — it's six
+    failure-isolated datacenter groupings. That's the basis of HA inside a Region.
+  </aside>
+</section>

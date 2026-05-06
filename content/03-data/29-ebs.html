@@ -1,0 +1,40 @@
+<!--
+  Slide 29 · EBS — a virtual disk for one EC2
+  Chapter: 3 · Where data sits
+  Folds in: AZ-scoped property + instance-store margin note.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 3</div>
+    <div class="right">
+      <span>EBS</span>
+      <span class="folio">29</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:center">
+
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div class="eyebrow">Elastic Block Store</div>
+      <h2 style="max-width:780px">EBS is a virtual disk. <em class="kicker" style="color:var(--accent)">AZ-scoped.</em></h2>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;
+                 color:var(--ink-2);font-size:20px">
+        <li>&middot;&nbsp; Volume in <em>one AZ</em>, attached to <em>one EC2</em> (multi-attach is the exception).</li>
+        <li>&middot;&nbsp; Persistent &mdash; survives stop. Resizable. Snapshots are <em>Regional</em> (stored in S3 behind the scenes).</li>
+        <li>&middot;&nbsp; Volume types: <code>gp3</code> default &middot; <code>io2</code> demanding DBs &middot; <code>st1/sc1</code> throughput.</li>
+      </ul>
+    </div>
+
+    <div class="margin-note" style="max-width:320px;padding:14px;border-left:3px solid var(--rule)">
+      <strong style="color:var(--ink)">Side note &mdash;</strong> there's also <em>instance store</em>:
+      fast, host-local SSD that <em style="color:var(--warn)">vanishes on stop</em>.
+      Save it for a question.
+    </div>
+  </div>
+
+  <aside class="notes">
+    Two takeaways: EBS = one disk, one AZ, one EC2 — and snapshots cross AZs and
+    Regions. Instance store mention is in the margin on purpose; don't dwell.
+  </aside>
+</section>

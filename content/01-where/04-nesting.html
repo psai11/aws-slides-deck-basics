@@ -1,0 +1,78 @@
+<!--
+  Slide 04 · The nesting model
+  Chapter: 1 · Where things live
+  Widget: svgStepReveal — clicks step through SVG group ids.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 1</div>
+    <div class="right">
+      <span>The nesting model</span>
+      <span class="folio">04</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:center">
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="eyebrow">Mental model</div>
+      <h3 style="max-width:560px">It nests, like Russian dolls.</h3>
+
+      <svg id="nesting-svg" viewBox="0 0 720 460" width="100%"
+           role="img" aria-label="Concentric nesting: Global, Region, AZ, VPC, Subnet">
+        <g id="l1-global">
+          <rect x="10" y="10" width="700" height="440" rx="14"
+                fill="none" stroke="var(--ink)" stroke-width="1.6"/>
+          <text x="26" y="34" font-family="JetBrains Mono, monospace" font-size="13"
+                fill="var(--muted)" letter-spacing="2">GLOBAL</text>
+        </g>
+        <g id="l2-region">
+          <rect x="44" y="56" width="632" height="380" rx="12"
+                fill="none" stroke="var(--ink)" stroke-width="1.6"/>
+          <text x="60" y="80" font-family="JetBrains Mono, monospace" font-size="13"
+                fill="var(--muted)" letter-spacing="2">REGION · us-east-1</text>
+        </g>
+        <g id="l3-az">
+          <rect x="80" y="100" width="560" height="320" rx="10"
+                fill="none" stroke="var(--ink)" stroke-width="1.6"
+                stroke-dasharray="4 4"/>
+          <text x="96" y="124" font-family="JetBrains Mono, monospace" font-size="13"
+                fill="var(--muted)" letter-spacing="2">AVAILABILITY ZONE · us-east-1a</text>
+        </g>
+        <g id="l4-vpc">
+          <rect x="120" y="148" width="480" height="248" rx="10"
+                fill="color-mix(in srgb, var(--accent) 6%, transparent)"
+                stroke="var(--accent)" stroke-width="2"/>
+          <text x="138" y="172" font-family="JetBrains Mono, monospace" font-size="13"
+                fill="var(--accent)" letter-spacing="2">VPC · 10.0.0.0/16</text>
+        </g>
+        <g id="l5-subnet">
+          <rect x="160" y="200" width="400" height="170" rx="8"
+                fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+          <text x="178" y="224" font-family="JetBrains Mono, monospace" font-size="13"
+                fill="var(--ink)" letter-spacing="2">SUBNET · 10.0.1.0/24</text>
+          <circle cx="240" cy="295" r="10" fill="var(--accent)"/>
+          <text x="260" y="300" font-family="Inter, sans-serif" font-size="14"
+                fill="var(--ink-2)">EC2 instance</text>
+        </g>
+      </svg>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+      <div data-widget="svgStepReveal"
+           data-widget-options='{"target":"#nesting-svg","steps":["#l1-global","#l2-region","#l3-az","#l4-vpc","#l5-subnet"]}'></div>
+      <p class="margin-note">
+        One VPC sits in one Region. One subnet sits in one AZ. The rest follows.
+      </p>
+      <div class="callout warn"><span class="label">remember</span>
+        Region and AZ are not synonyms. A Region <em>contains</em> AZs.
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Spine of the talk. Click each layer as you say its name. Don't rush — let them
+    absorb that "Region" and "AZ" are not synonyms.
+  </aside>
+</section>

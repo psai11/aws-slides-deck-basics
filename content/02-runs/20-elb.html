@@ -1,0 +1,70 @@
+<!--
+  Slide 20 · Load balancer
+  Chapter: 2 · What runs in there
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 2</div>
+    <div class="right">
+      <span>Load balancer</span>
+      <span class="folio">20</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:72px 100px;
+              display:flex;flex-direction:column;gap:20px;justify-content:center">
+
+    <div class="eyebrow">ELB</div>
+    <h3 style="max-width:980px">The ELB is the front door <em class="kicker" style="color:var(--accent)">across AZs</em>.</h3>
+
+    <svg viewBox="0 0 1080 320" width="100%" role="img"
+         aria-label="Client routes through an ALB across two AZs to private EC2s">
+      <text x="40" y="68" font-family="Inter, sans-serif" font-size="14" fill="var(--ink)">client</text>
+      <line x1="100" y1="60" x2="500" y2="60" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrL)"/>
+
+      <rect x="500" y="40" width="380" height="44" rx="22"
+            fill="var(--paper)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="690" y="68" text-anchor="middle" font-family="Inter, sans-serif"
+            font-weight="600" font-size="14" fill="var(--accent)">ALB · across public subnets</text>
+
+      <line x1="600" y1="84" x2="350" y2="180" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrL)"/>
+      <line x1="780" y1="84" x2="830" y2="180" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrL)"/>
+
+      <!-- AZ-A box -->
+      <rect x="200" y="180" width="320" height="120" rx="8" fill="none"
+            stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <text x="220" y="204" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">AZ-A · private</text>
+      <circle cx="290" cy="250" r="14" fill="var(--accent)"/>
+      <circle cx="370" cy="250" r="14" fill="var(--accent)"/>
+      <circle cx="450" cy="250" r="14" fill="var(--accent)"/>
+
+      <rect x="700" y="180" width="320" height="120" rx="8" fill="none"
+            stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <text x="720" y="204" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">AZ-B · private</text>
+      <circle cx="790" cy="250" r="14" fill="var(--accent)"/>
+      <circle cx="870" cy="250" r="14" fill="var(--accent)"/>
+      <circle cx="950" cy="250" r="14" fill="var(--accent)"/>
+
+      <defs>
+        <marker id="arrL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:8px">
+      <div class="callout"><span class="label">ALB</span>HTTP/HTTPS &middot; layer 7. <em>90% of cases.</em></div>
+      <div class="callout"><span class="label">NLB</span>TCP/UDP &middot; layer 4. Ultra-low latency.</div>
+      <div class="callout warn"><span class="label">classic</span>Don't.</div>
+    </div>
+
+    <blockquote style="font-size:24px;color:var(--ink);margin-top:8px">
+      <em>ALB across AZs</em> is the simplest multi-AZ pattern that exists.
+    </blockquote>
+  </div>
+
+  <aside class="notes">
+    The ELB is the seam between public internet and private workloads. ALB for 90%
+    of cases. Spans AZs by design.
+  </aside>
+</section>

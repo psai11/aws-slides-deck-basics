@@ -1,0 +1,67 @@
+<!--
+  Slide 38 · Policies — action × resource × condition
+  Chapter: 4 · Who's allowed what
+  Introduces iam-triangle.svg in intro state.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Policies</span>
+      <span class="folio">38</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center">
+
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div class="eyebrow">Policies</div>
+      <h2 style="max-width:520px">A policy is the rule book.</h2>
+      <p style="font-size:20px">Policies answer: which <em>actions</em> on which <em>resources</em> under which <em>conditions</em>?</p>
+
+      <div style="display:flex;flex-direction:column;gap:8px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ink-2)">
+        <div>&middot; AWS-managed &nbsp;<span style="color:var(--muted)">— maintained by AWS</span></div>
+        <div>&middot; Customer-managed &nbsp;<span style="color:var(--muted)">— you create, reusable</span></div>
+        <div>&middot; Inline &nbsp;<span style="color:var(--muted)">— embedded on one identity</span></div>
+      </div>
+
+      <blockquote style="font-size:22px;color:var(--ink);margin-top:8px">
+        A policy does <em>nothing</em> until you attach it to an identity.
+      </blockquote>
+    </div>
+
+    <svg viewBox="0 0 480 360" width="100%" role="img" aria-label="IAM triangle: principal, policy, resource">
+      <!-- Principal -->
+      <circle cx="240" cy="60" r="40" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="240" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="var(--ink)">Principal</text>
+      <text x="240" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">user · role</text>
+
+      <!-- Policy -->
+      <rect x="60" y="220" width="160" height="80" rx="10" fill="color-mix(in srgb, var(--accent) 12%, var(--paper))" stroke="var(--accent)" stroke-width="2"/>
+      <text x="140" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="var(--accent)">Policy</text>
+      <text x="140" y="274" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-3)">statements</text>
+
+      <!-- Resource -->
+      <rect x="260" y="220" width="160" height="80" rx="10" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="340" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="var(--ink)">Resource</text>
+      <text x="340" y="274" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">arn:aws:…</text>
+
+      <!-- Arrows -->
+      <line x1="240" y1="100" x2="160" y2="220" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrIAM)"/>
+      <line x1="220" y1="260" x2="260" y2="260" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrIAM)"/>
+      <line x1="240" y1="100" x2="320" y2="220" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#arrIAM)"/>
+
+      <defs>
+        <marker id="arrIAM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <aside class="notes">
+    Triangle is the model. Three types: AWS-managed for common stuff,
+    customer-managed for reusable rules, inline for one-offs.
+  </aside>
+</section>

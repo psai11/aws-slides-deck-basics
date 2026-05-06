@@ -1,0 +1,58 @@
+<!--
+  Slide 28 · S3 storage classes
+  Chapter: 3 · Where data sits
+  Static slide — no widget per spec.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 3</div>
+    <div class="right">
+      <span>Storage classes</span>
+      <span class="folio">28</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center">
+
+    <div class="eyebrow">S3 storage classes</div>
+    <h2 style="max-width:980px">Hot, warm, cold &mdash; <em class="kicker" style="color:var(--accent)">pay accordingly</em>.</h2>
+
+    <svg viewBox="0 0 1080 220" width="100%" role="img"
+         aria-label="S3 storage class spectrum from hot to cold">
+      <line x1="60" y1="120" x2="1020" y2="120" stroke="var(--ink)" stroke-width="1.4"/>
+      <line x1="60" y1="115" x2="60" y2="125" stroke="var(--ink)" stroke-width="1.4"/>
+      <line x1="1020" y1="115" x2="1020" y2="125" stroke="var(--ink)" stroke-width="1.4"/>
+      <text x="60" y="156" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">HOT · ms</text>
+      <text x="1020" y="156" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">COLD · hours</text>
+
+      <g><rect x="80" y="80" width="140" height="60" rx="6" fill="color-mix(in srgb, var(--accent) 24%, var(--paper))" stroke="var(--accent)" stroke-width="1.4"/>
+         <text x="150" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Standard</text>
+         <text x="150" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">default</text></g>
+      <g><rect x="240" y="80" width="170" height="60" rx="6" fill="color-mix(in srgb, var(--accent) 18%, var(--paper))" stroke="var(--accent)" stroke-width="1.4"/>
+         <text x="325" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Intelligent-Tiering</text>
+         <text x="325" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">auto</text></g>
+      <g><rect x="430" y="80" width="120" height="60" rx="6" fill="color-mix(in srgb, var(--accent) 14%, var(--paper))" stroke="var(--accent)" stroke-width="1.4"/>
+         <text x="490" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Standard-IA</text>
+         <text x="490" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">infrequent</text></g>
+      <g><rect x="570" y="80" width="140" height="60" rx="6" fill="color-mix(in srgb, var(--accent) 10%, var(--paper))" stroke="var(--accent)" stroke-width="1.4"/>
+         <text x="640" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Glacier Instant</text>
+         <text x="640" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">ms retrieval</text></g>
+      <g><rect x="730" y="80" width="140" height="60" rx="6" fill="color-mix(in srgb, var(--accent) 6%, var(--paper))" stroke="var(--accent)" stroke-width="1.4"/>
+         <text x="800" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Glacier Flex</text>
+         <text x="800" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">min — h</text></g>
+      <g><rect x="890" y="80" width="120" height="60" rx="6" fill="color-mix(in srgb, var(--accent) 3%, var(--paper))" stroke="var(--accent)" stroke-width="1.4"/>
+         <text x="950" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="13" fill="var(--ink)">Deep Archive</text>
+         <text x="950" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--muted)">12 h</text></g>
+    </svg>
+
+    <div class="callout good"><span class="label">default</span>
+      <em>Intelligent-Tiering</em> is the right answer if you can't predict access.
+    </div>
+  </div>
+
+  <aside class="notes">
+    Don't memorise every class. Hot-to-cold spectrum; Intelligent-Tiering for "I
+    don't know yet." Cost ↓, retrieval time ↑ as you go cold.
+  </aside>
+</section>

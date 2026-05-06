@@ -1,0 +1,42 @@
+<!--
+  Slide 27 · S3 — buckets and keys
+  Chapter: 3 · Where data sits
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 3</div>
+    <div class="right">
+      <span>S3</span>
+      <span class="folio">27</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:28px;justify-content:center">
+
+    <div class="eyebrow">Simple Storage Service</div>
+    <h2 style="max-width:980px">S3 stores <em class="kicker" style="color:var(--accent)">objects</em> in buckets.</h2>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;max-width:1080px;align-items:start">
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;
+                 color:var(--ink-2);font-size:20px">
+        <li>&middot;&nbsp; <strong>Bucket + key.</strong> Flat namespace inside a bucket. Regional creation.</li>
+        <li>&middot;&nbsp; <strong>Eleven nines</strong> durability for Standard.</li>
+        <li>&middot;&nbsp; HTTPS API, SDKs, CLI &mdash; integrates with Lambda, CloudFront, …</li>
+      </ul>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+<pre style="font-size:15px">s3://acme-prod-data/<span style="color:var(--accent)">reports/2026-05/q1.csv</span>
+  └─ bucket           └─ key</pre>
+        <blockquote style="font-size:24px;color:var(--ink)">
+          Internet-scale file storage &mdash; <em>not a filesystem you mount.</em>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Mental model: files reachable by name over HTTP. Don't try to run a database on
+    S3 — wrong shape.
+  </aside>
+</section>

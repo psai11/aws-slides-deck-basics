@@ -1,0 +1,64 @@
+<!--
+  Slide 15 · "Compute" = somewhere your code runs
+  Chapter: 2 · What runs in there
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 2</div>
+    <div class="right">
+      <span>Three flavours</span>
+      <span class="folio">15</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:32px;justify-content:center">
+
+    <div class="eyebrow">Compute</div>
+    <h2 style="max-width:980px">Three flavours of "<em class="kicker" style="color:var(--accent)">somewhere your code runs</em>."</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px;max-width:1080px;margin-top:8px">
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px;
+                  background:var(--paper-3);border:1px solid var(--rule);border-radius:10px">
+        <svg viewBox="0 0 64 64" width="48" height="48" role="img" aria-label="VM icon">
+          <rect x="6" y="14" width="52" height="36" rx="4" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="6" y1="22" x2="58" y2="22" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="11" cy="18" r="1.5" fill="var(--accent)"/>
+          <line x1="14" y1="42" x2="50" y2="42" stroke="var(--ink-3)" stroke-width="1"/>
+        </svg>
+        <h3>VMs</h3>
+        <p style="font-size:18px">EC2 &mdash; you pick OS, size, run anything you want, manage the box.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px;
+                  background:var(--paper-3);border:1px solid var(--rule);border-radius:10px">
+        <svg viewBox="0 0 64 64" width="48" height="48" role="img" aria-label="Function icon">
+          <polygon points="14,18 50,18 38,46 26,46" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <text x="32" y="38" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="14" fill="var(--accent)">f</text>
+        </svg>
+        <h3>Functions</h3>
+        <p style="font-size:18px">Lambda &mdash; run code on events, no servers to patch.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px;
+                  background:var(--paper-3);border:1px solid var(--rule);border-radius:10px">
+        <svg viewBox="0 0 64 64" width="48" height="48" role="img" aria-label="Container icon">
+          <rect x="10" y="22" width="44" height="20" rx="2" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="22" y1="22" x2="22" y2="42" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="32" y1="22" x2="32" y2="42" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="42" y1="22" x2="42" y2="42" stroke="var(--ink)" stroke-width="2"/>
+        </svg>
+        <h3>Containers</h3>
+        <p style="font-size:18px">ECS / EKS / Fargate &mdash; package once, schedule many.</p>
+      </div>
+    </div>
+
+    <hr class="rule short" style="margin-top:8px">
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--muted);font-size:20px">
+      You'll combine them in real systems.
+    </p>
+  </div>
+
+  <aside class="notes">
+    Don't make this either/or. Real systems mix all three. Today's slide is the
+    vocabulary.
+  </aside>
+</section>

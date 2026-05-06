@@ -1,0 +1,51 @@
+<!--
+  Slide 26 · Three patterns — object · block · file
+  Chapter: 3 · Where data sits
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 3</div>
+    <div class="right">
+      <span>Three patterns</span>
+      <span class="folio">26</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:32px;justify-content:center">
+
+    <div class="eyebrow">Storage shapes</div>
+    <h2 style="max-width:980px">Three storage <em class="kicker" style="color:var(--accent)">shapes</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1080px">
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);
+                  border-radius:10px;display:flex;flex-direction:column;gap:12px">
+        <div class="eyebrow accent">object</div>
+        <h3>S3</h3>
+        <p style="font-size:18px">Buckets and keys. HTTP API. Internet-scale blobs.</p>
+      </div>
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);
+                  border-radius:10px;display:flex;flex-direction:column;gap:12px">
+        <div class="eyebrow accent">block</div>
+        <h3>EBS</h3>
+        <p style="font-size:18px">Virtual disk. Attached to one EC2 in one AZ.</p>
+      </div>
+      <div style="padding:22px;background:var(--paper-3);border:1px solid var(--rule);
+                  border-radius:10px;display:flex;flex-direction:column;gap:12px">
+        <div class="eyebrow accent">file</div>
+        <h3>EFS</h3>
+        <p style="font-size:18px">Shared NFS folder. Many EC2s mount it together.</p>
+      </div>
+    </div>
+
+    <hr class="rule short">
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--muted);font-size:20px">
+      &mdash; plus instance store: fast, ephemeral, host-local &mdash; for scratch only.
+    </p>
+  </div>
+
+  <aside class="notes">
+    Three shapes, three access models. Object = HTTP. Block = mounted disk. File =
+    network share.
+  </aside>
+</section>

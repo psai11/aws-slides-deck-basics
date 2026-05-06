@@ -1,0 +1,53 @@
+<!--
+  Slide 08 · Reading 10.0.0.0/16
+  Chapter: 1 · Where things live
+  Widget: cidrSlider — drag prefix length, bar resizes and re-subdivides.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 1</div>
+    <div class="right">
+      <span>Reading 10.0.0.0/16</span>
+      <span class="folio">08</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:72px 100px 100px;
+              display:flex;flex-direction:column;gap:18px">
+
+    <div class="eyebrow">CIDR notation</div>
+    <h3 style="max-width:980px">Drag the prefix &mdash; <em class="kicker"
+        style="color:var(--accent)">feel</em> the trade-off.</h3>
+
+    <svg id="cidr-svg" viewBox="0 0 1200 360" width="100%"
+         role="img" aria-label="CIDR bar — drag to resize">
+      <text x="60" y="70" font-family="JetBrains Mono, monospace" font-size="22"
+            fill="var(--ink)">
+        10.0.0.0<tspan id="cidr-prefix" fill="var(--accent)" font-weight="700">/16</tspan>
+      </text>
+      <text id="cidr-count" x="60" y="105" font-family="JetBrains Mono, monospace"
+            font-size="15" fill="var(--muted)" letter-spacing="2">65,536 addresses</text>
+      <text id="cidr-subdiv" x="60" y="130" font-family="JetBrains Mono, monospace"
+            font-size="13" fill="var(--ink-2)">↳ 8 × /19 chunks</text>
+      <g id="cidr-bar"></g>
+      <text x="60" y="320" font-family="Fraunces, Georgia, serif" font-style="italic"
+            font-size="18" fill="var(--ink-3)">
+        Bigger /N → smaller block. /16 is roomier than /24.
+      </text>
+    </svg>
+
+    <div style="display:flex;gap:48px;align-items:flex-start;margin-top:8px">
+      <div data-widget="cidrSlider"
+           data-widget-options='{"target":"#cidr-svg","start":16}'></div>
+      <p class="margin-note" style="max-width:340px">
+        VPCs and subnets must agree: every subnet's CIDR sits <em>inside</em> the VPC's,
+        and they don't overlap.
+      </p>
+    </div>
+  </div>
+
+  <aside class="notes">
+    The mistake is reading /N as size — it's the opposite. Bigger N, smaller block.
+    Drag the slider to feel it; mention real-world: VPC /16, subnets /24 each.
+  </aside>
+</section>

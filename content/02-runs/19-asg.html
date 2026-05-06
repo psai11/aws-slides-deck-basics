@@ -1,0 +1,66 @@
+<!--
+  Slide 19 · Auto Scaling Group
+  Chapter: 2 · What runs in there
+  Widget: asgScaler — three buttons, demonstrate self-healing.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 2</div>
+    <div class="right">
+      <span>Auto Scaling Group</span>
+      <span class="folio">19</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:64px 80px 80px;
+              display:grid;grid-template-rows:auto 1fr auto;gap:16px">
+
+    <div style="display:flex;align-items:baseline;gap:24px">
+      <div class="eyebrow">ASG</div>
+      <h3>An ASG is a fleet that <em class="kicker" style="color:var(--accent)">breathes</em>.</h3>
+    </div>
+
+    <svg id="asg-svg" viewBox="0 0 1080 360" width="100%" role="img"
+         aria-label="Auto Scaling Group across two AZs with a fleet of EC2 dots">
+      <!-- Launch template -->
+      <rect x="20" y="60" width="180" height="80" rx="10"
+            fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text x="110" y="90" text-anchor="middle" font-family="Inter, sans-serif"
+            font-weight="600" font-size="14" fill="var(--ink)">launch template</text>
+      <text x="110" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace"
+            font-size="11" fill="var(--muted)">AMI · type · SG · subnets</text>
+
+      <line x1="200" y1="100" x2="280" y2="180" stroke="var(--ink)"
+            stroke-width="1.4" marker-end="url(#arrA)"/>
+
+      <!-- ASG box across AZs -->
+      <rect x="280" y="40" width="780" height="280" rx="14"
+            fill="color-mix(in srgb, var(--accent) 5%, transparent)"
+            stroke="var(--accent)" stroke-width="2"/>
+      <text x="300" y="68" font-family="JetBrains Mono, monospace" font-size="13"
+            fill="var(--accent)" letter-spacing="2">ASG · spans AZ-A + AZ-B</text>
+
+      <g id="asg-fleet" transform="translate(380 100)"></g>
+
+      <defs>
+        <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center">
+      <div data-widget="asgScaler"
+           data-widget-options='{"target":"#asg-svg","start":3,"min":2,"max":6}'></div>
+      <blockquote style="font-size:24px;color:var(--ink);max-width:540px">
+        Self-healing capacity &mdash; <em>pets become cattle.</em>
+      </blockquote>
+    </div>
+  </div>
+
+  <aside class="notes">
+    The ASG is what makes EC2 feel cloud-native vs rented hardware. Replaces
+    instances, scales on metrics, spans AZs. Click "kill one" to land the
+    self-healing point.
+  </aside>
+</section>

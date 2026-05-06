@@ -1,0 +1,59 @@
+<!--
+  Slide 53 · DR spectrum
+  Chapter: 5 · Staying up & coming back
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>DR spectrum</span>
+      <span class="folio">53</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center">
+
+    <div class="eyebrow">DR strategies</div>
+    <h2 style="max-width:980px">Four strategies, four price tags.</h2>
+
+    <svg viewBox="0 0 1080 280" width="100%" role="img" aria-label="DR strategy spectrum from cheap to expensive">
+      <line x1="60" y1="220" x2="1020" y2="220" stroke="var(--ink)" stroke-width="1.4"/>
+      <text x="60" y="260" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">SLOWER · CHEAPER</text>
+      <text x="1020" y="260" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="2">FASTER · MORE $$</text>
+
+      <g><rect x="80" y="60" width="200" height="140" rx="10" fill="color-mix(in srgb, var(--accent) 6%, var(--paper))" stroke="var(--accent)" stroke-width="1.6"/>
+         <text x="180" y="92" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="var(--accent)">Backup &amp; restore</text>
+         <text x="180" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">backups + AMIs</text>
+         <text x="180" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">in DR Region</text>
+         <text x="180" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">RTO long · RPO ≈ backup freq</text></g>
+
+      <g><rect x="320" y="60" width="200" height="140" rx="10" fill="color-mix(in srgb, var(--accent) 12%, var(--paper))" stroke="var(--accent)" stroke-width="1.6"/>
+         <text x="420" y="92" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="var(--accent)">Pilot light</text>
+         <text x="420" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">minimal stack always</text>
+         <text x="420" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">scale up on disaster</text>
+         <text x="420" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">RTO medium</text></g>
+
+      <g><rect x="560" y="60" width="200" height="140" rx="10" fill="color-mix(in srgb, var(--accent) 18%, var(--paper))" stroke="var(--accent)" stroke-width="1.6"/>
+         <text x="660" y="92" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="var(--accent)">Warm standby</text>
+         <text x="660" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">smaller full copy</text>
+         <text x="660" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">scale or promote</text>
+         <text x="660" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">RTO short</text></g>
+
+      <g><rect x="800" y="60" width="200" height="140" rx="10" fill="color-mix(in srgb, var(--accent) 24%, var(--paper))" stroke="var(--accent)" stroke-width="2"/>
+         <text x="900" y="92" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="var(--accent)">Active-active</text>
+         <text x="900" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">two Regions serving</text>
+         <text x="900" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--ink-2)">together</text>
+         <text x="900" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">RTO lowest · RPO ≈ 0</text></g>
+    </svg>
+
+    <blockquote style="font-size:24px;color:var(--ink)">
+      How much runs <em>before</em> the disaster determines how fast you come back.
+    </blockquote>
+  </div>
+
+  <aside class="notes">
+    Names vary by team. The point is the spectrum. Spend money where the business
+    needs faster recovery.
+  </aside>
+</section>

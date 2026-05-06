@@ -1,0 +1,57 @@
+<!--
+  Slide 13 · Mental model recap — Ch 1
+  Chapter: 1 · Where things live
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 1</div>
+    <div class="right">
+      <span>Mental model</span>
+      <span class="folio">13</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:flex;flex-direction:column;gap:30px;justify-content:center">
+
+    <div class="eyebrow">Recap · Where things live</div>
+    <h2 style="max-width:1000px">The chapter, in five lines.</h2>
+
+    <ol style="list-style:none;padding:0;display:flex;flex-direction:column;gap:18px">
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">1</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:30px;color:var(--ink)">
+          Region = the city <em style="color:var(--accent)">metro area</em>.
+        </div>
+      </li>
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">2</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:30px;color:var(--ink)">
+          AZ = a separate datacenter <em style="color:var(--accent)">campus</em>.
+        </div>
+      </li>
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">3</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:30px;color:var(--ink)">
+          VPC = your <em style="color:var(--accent)">private network</em> in one Region.
+        </div>
+      </li>
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">4</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:30px;color:var(--ink)">
+          Subnet = a <em style="color:var(--accent)">slice</em> of that VPC, in one AZ.
+        </div>
+      </li>
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">5</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:30px;color:var(--ink)">
+          Public/private = a <em style="color:var(--accent)">routing decision</em>, not an address range.
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <aside class="notes">
+    Read each line, pause briefly. Tell them the rest of the deck assumes this stack.
+  </aside>
+</section>

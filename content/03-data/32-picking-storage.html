@@ -1,0 +1,63 @@
+<!--
+  Slide 32 · Picking storage — small flowchart
+  Chapter: 3 · Where data sits
+  Widget: reveal — quick quiz answer.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 3</div>
+    <div class="right">
+      <span>Picking storage</span>
+      <span class="folio">32</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:24px;justify-content:center">
+
+    <div class="eyebrow">Decision sketch</div>
+    <h2 style="max-width:980px">A thirty-second decision.</h2>
+
+    <svg viewBox="0 0 1080 240" width="100%" role="img"
+         aria-label="Decision tree for picking storage">
+      <rect x="40" y="20" width="320" height="50" rx="8" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text x="200" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="var(--ink)">Uploading user files / static content?</text>
+      <line x1="360" y1="46" x2="430" y2="46" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrSt)"/>
+      <rect x="430" y="20" width="120" height="50" rx="8" fill="color-mix(in srgb, var(--accent) 12%, var(--paper))" stroke="var(--accent)" stroke-width="2"/>
+      <text x="490" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="var(--accent)">→ S3</text>
+
+      <line x1="200" y1="70" x2="200" y2="110" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrSt)"/>
+      <rect x="40" y="110" width="320" height="50" rx="8" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text x="200" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="var(--ink)">App on EC2 needs a disk?</text>
+      <line x1="360" y1="135" x2="430" y2="135" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrSt)"/>
+      <rect x="430" y="110" width="120" height="50" rx="8" fill="color-mix(in srgb, var(--accent) 12%, var(--paper))" stroke="var(--accent)" stroke-width="2"/>
+      <text x="490" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="var(--accent)">→ EBS</text>
+
+      <line x1="200" y1="160" x2="200" y2="200" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrSt)"/>
+      <rect x="40" y="200" width="320" height="40" rx="8" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text x="200" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="var(--ink)">Multiple EC2s sharing files?</text>
+      <line x1="360" y1="220" x2="430" y2="220" stroke="var(--ink)" stroke-width="1.4" marker-end="url(#arrSt)"/>
+      <rect x="430" y="200" width="120" height="40" rx="8" fill="color-mix(in srgb, var(--accent) 12%, var(--paper))" stroke="var(--accent)" stroke-width="2"/>
+      <text x="490" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="var(--accent)">→ EFS</text>
+
+      <defs>
+        <marker id="arrSt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center">
+      <div data-widget="reveal"
+           data-widget-options='{"prompt":"Q: an app on EC2 needs a 200 GB DB volume that survives reboots. Pick one.","answer":"EBS gp3"}'></div>
+      <p class="margin-note" style="max-width:none">
+        Predict the answer before you click.
+      </p>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Use the reveal as a quick check. The audience should be able to predict the
+    answer before you click.
+  </aside>
+</section>

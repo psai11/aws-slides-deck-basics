@@ -1,0 +1,67 @@
+<!--
+  Slide 39 · Anatomy of a statement
+  Chapter: 4 · Who's allowed what
+  Widget: jsonAnnotator — click pillars to highlight margin notes.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Statement anatomy</span>
+      <span class="folio">39</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:64px 80px 80px;
+              display:flex;flex-direction:column;gap:18px">
+
+    <div style="display:flex;align-items:baseline;gap:24px">
+      <div class="eyebrow">Anatomy</div>
+      <h3>Effect &middot; Action &middot; Resource &middot; Condition.</h3>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:start">
+<pre style="font-size:15px;line-height:1.6;padding:22px"><span style="color:var(--muted)">{
+  </span><span class="dc-pillar" data-pillar="effect" style="padding:2px 4px;border-radius:3px">"Effect"</span><span style="color:var(--muted)">:   </span>"Allow",<span style="color:var(--muted)">
+  </span><span class="dc-pillar" data-pillar="action" style="padding:2px 4px;border-radius:3px">"Action"</span><span style="color:var(--muted)">:   </span>"s3:GetObject",<span style="color:var(--muted)">
+  </span><span class="dc-pillar" data-pillar="resource" style="padding:2px 4px;border-radius:3px">"Resource"</span><span style="color:var(--muted)">: </span>"arn:aws:s3:::acme-prod-data/reports/*",<span style="color:var(--muted)">
+  </span><span class="dc-pillar" data-pillar="condition" style="padding:2px 4px;border-radius:3px">"Condition"</span><span style="color:var(--muted)">: {
+    </span>"IpAddress": { "aws:SourceIp": "203.0.113.0/24" }<span style="color:var(--muted)">
+  }
+}</span></pre>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="dc-annot" data-pillar="effect"
+             style="padding:10px 14px;border-left:3px solid var(--accent);font-size:14px">
+          <strong>Effect</strong> &mdash; Allow or Deny. Deny wins ties.
+        </div>
+        <div class="dc-annot" data-pillar="action"
+             style="padding:10px 14px;border-left:3px solid var(--accent);font-size:14px">
+          <strong>Action</strong> &mdash; the API call. Wildcards permitted (use sparingly).
+        </div>
+        <div class="dc-annot" data-pillar="resource"
+             style="padding:10px 14px;border-left:3px solid var(--accent);font-size:14px">
+          <strong>Resource</strong> &mdash; the ARN(s) the action targets.
+        </div>
+        <div class="dc-annot" data-pillar="condition"
+             style="padding:10px 14px;border-left:3px solid var(--accent);font-size:14px">
+          <strong>Condition</strong> &mdash; the safety net (here: only from the corp IP).
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:24px;margin-top:6px">
+      <div data-widget="jsonAnnotator"></div>
+      <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--ink-2);font-size:18px;max-width:680px;margin:0">
+        Read it as: role <em>X</em> may read <code>/reports/*</code> from <code>acme-prod-data</code>,
+        but only from the corp IP range.
+      </p>
+    </div>
+  </div>
+
+  <aside class="notes">
+    The slide where the abstraction becomes concrete. Read the JSON aloud and
+    translate each pillar into English. The Condition is the bit beginners miss —
+    it's the safety net.
+  </aside>
+</section>

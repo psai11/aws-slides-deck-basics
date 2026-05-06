@@ -1,0 +1,46 @@
+<!--
+  Slide 21 · Lambda — run code on events
+  Chapter: 2 · What runs in there
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 2</div>
+    <div class="right">
+      <span>Lambda</span>
+      <span class="folio">21</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center">
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div class="eyebrow">Lambda</div>
+      <h2 style="max-width:780px">Lambda is "<em class="kicker" style="color:var(--accent)">run this</em> when X happens."</h2>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;
+                 color:var(--ink-2);font-size:20px">
+        <li>&middot;&nbsp; You don't manage servers; AWS runs your code.</li>
+        <li>&middot;&nbsp; Pay for invocations + duration + memory.</li>
+        <li>&middot;&nbsp; Short-lived by design (max execution per invocation).</li>
+      </ul>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;
+                  text-transform:uppercase;color:var(--muted)">Common triggers</div>
+<pre style="font-size:14px">S3 PUT
+API Gateway request
+EventBridge cron
+SQS message
+DynamoDB stream</pre>
+      <div class="callout good"><span class="label">free tier</span>
+        Generous &mdash; great for learning.
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Lambda's killer use case isn't replacing EC2 — it's gluing AWS services
+    together: APIs, scheduled jobs, file-upload triggers, queue consumers.
+  </aside>
+</section>

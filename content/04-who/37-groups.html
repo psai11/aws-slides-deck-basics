@@ -1,0 +1,55 @@
+<!--
+  Slide 37 · Groups — bundle users, attach once
+  Chapter: 4 · Who's allowed what
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Groups</span>
+      <span class="folio">37</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:96px 120px;
+              display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div class="eyebrow">IAM groups</div>
+      <h2 style="max-width:520px">A group is a bundle of users.</h2>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;color:var(--ink-2);font-size:20px">
+        <li>&middot;&nbsp; You can't sign in <em>as</em> a group.</li>
+        <li>&middot;&nbsp; Attach policies once, members inherit.</li>
+        <li>&middot;&nbsp; A user can be in multiple groups.</li>
+      </ul>
+    </div>
+
+    <svg viewBox="0 0 480 320" width="100%" role="img" aria-label="Three users grouped, one policy attached">
+      <rect x="60" y="60" width="360" height="180" rx="14"
+            fill="color-mix(in srgb, var(--accent) 5%, transparent)"
+            stroke="var(--accent)" stroke-width="2"/>
+      <text x="80" y="86" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--accent)" letter-spacing="2">GROUP · Developers</text>
+
+      <circle cx="140" cy="160" r="22" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="140" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="var(--ink)">user</text>
+      <circle cx="240" cy="160" r="22" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="240" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="var(--ink)">user</text>
+      <circle cx="340" cy="160" r="22" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.6"/>
+      <text x="340" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="var(--ink)">user</text>
+
+      <line x1="240" y1="240" x2="240" y2="280" stroke="var(--ink)" stroke-width="1.6" marker-end="url(#arrG37)"/>
+      <text x="260" y="266" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">policy attached once → all members</text>
+
+      <defs>
+        <marker id="arrG37" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <aside class="notes">
+    Groups exist so you don't copy-paste permissions onto every user. Don't
+    overthink them.
+  </aside>
+</section>

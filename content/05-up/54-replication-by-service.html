@@ -1,0 +1,39 @@
+<!--
+  Slide 54 · Replication by service
+  Chapter: 5 · Staying up & coming back
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>Replication by service</span>
+      <span class="folio">54</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:80px 100px;
+              display:flex;flex-direction:column;gap:20px;justify-content:center">
+
+    <div class="eyebrow">Patterns</div>
+    <h2 style="max-width:980px">A scan of replication patterns.</h2>
+
+<pre style="font-size:15px;line-height:1.7">service                pattern                                   mode      scope
+─────────────────────  ────────────────────────────────────────  ────────  ─────────────
+S3                     SRR / CRR (new objects, optional deletes) async     same/cross-Region
+RDS Multi-AZ           synchronous standby in another AZ         <em style="color:var(--good);font-style:normal">sync</em>      in-Region (HA)
+RDS read replicas      async replicas, separate endpoint         async     in-/cross-Region
+Aurora Global          fast cross-Region replication             async     cross-Region (DR)
+DynamoDB global tables multi-Region active-active                async     cross-Region
+EBS                    no continuous mirror — snapshot + copy    n/a       backup pattern
+EFS replication        cross-Region or in-Region                 async     either</pre>
+
+    <div class="callout warn"><span class="label">always</span>
+      Check current docs for your engine and version &mdash; patterns shift over time.
+    </div>
+  </div>
+
+  <aside class="notes">
+    Don't memorise. Patterns differ per service. Takeaway: most cross-Region is
+    async; managed-DB in-Region tends to sync.
+  </aside>
+</section>

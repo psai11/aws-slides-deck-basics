@@ -1,0 +1,43 @@
+<!--
+  Slide 49 · Sync vs async
+  Chapter: 5 · Staying up & coming back
+  Widget: replicationDemo — animate both sequences in parallel.
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 5</div>
+    <div class="right">
+      <span>Sync vs async</span>
+      <span class="folio">49</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:64px 80px 80px;
+              display:grid;grid-template-rows:auto auto 1fr auto;gap:12px">
+
+    <div style="display:flex;align-items:baseline;gap:24px">
+      <div class="eyebrow">Replication modes</div>
+      <h3>Wait for the copy, or <em class="kicker" style="color:var(--accent)">trust it'll catch up</em>.</h3>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="callout"><span class="label">sync</span>
+        Stronger consistency &middot; higher latency &middot; distance-limited.
+      </div>
+      <div class="callout"><span class="label">async</span>
+        Lower latency &middot; possible data loss on failure &middot; common cross-Region.
+      </div>
+    </div>
+
+    <div data-widget="replicationDemo" style="display:block"></div>
+
+    <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--muted);font-size:18px;text-align:center">
+      Sync goes with HA in-Region; async with DR cross-Region. Almost always.
+    </p>
+  </div>
+
+  <aside class="notes">
+    Grounds the rest of the chapter. Click "send write" to play both sequences.
+    Sync's ACK arrives last; async's ACK arrives before the replica catches up.
+  </aside>
+</section>

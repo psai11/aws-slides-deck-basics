@@ -1,0 +1,50 @@
+<!--
+  Slide 44 · Mental model recap — Ch 4
+  Chapter: 4 · Who's allowed what
+-->
+<section class="sheet" data-transition="fade">
+  <div class="chrome">
+    <div><span class="dot"></span>AWS BASICS · CH 4</div>
+    <div class="right">
+      <span>Mental model</span>
+      <span class="folio">44</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;inset:0;padding:120px;
+              display:flex;flex-direction:column;gap:36px;justify-content:center">
+
+    <div class="eyebrow">Recap · Who's allowed what</div>
+    <h2 style="max-width:1000px">The chapter, in three lines.</h2>
+
+    <ol style="list-style:none;padding:0;display:flex;flex-direction:column;gap:22px">
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">1</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:32px;color:var(--ink)">
+          Principal &rarr; Policy &rarr; <em style="color:var(--accent)">Resource</em> (the triangle).
+        </div>
+      </li>
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">2</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:32px;color:var(--ink)">
+          Roles <em style="color:var(--accent)">&gt;</em> Users for applications.
+        </div>
+      </li>
+      <li style="display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline">
+        <span class="stamp" style="width:38px;height:38px;font-size:18px">3</span>
+        <div style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:32px;color:var(--ink)">
+          <em style="color:var(--accent)">Deny</em> beats allow.
+        </div>
+      </li>
+    </ol>
+
+    <p style="color:var(--muted);font-size:18px;margin-top:8px">
+      Every API call is authorized. IAM is the doorman.
+    </p>
+  </div>
+
+  <aside class="notes">
+    Recap. Then bridge: even with perfect IAM, services break. Next chapter: keeping
+    them up.
+  </aside>
+</section>

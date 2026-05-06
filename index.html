@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>AWS Basics for People New to the Cloud</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600;1,9..144,700&display=swap">
+
+  <link rel="stylesheet" href="assets/deck.css">
+</head>
+
+<body>
+
+<!--
+  ──────────────────────────────────────────────────────────────────────────
+  AWS Basics for People New to the Cloud — modular Reveal.js deck.
+
+      python3 -m http.server 8000
+      open http://127.0.0.1:8000/aws-basics/
+
+  Slide order      → manifest.json
+  Slide content    → content/<chapter>/<folio>-<slug>.html
+  Theme / type     → assets/deck.css :root tokens
+  Validate edits   → python3 bin/check.py
+  ──────────────────────────────────────────────────────────────────────────
+-->
+
+<div class="reveal">
+  <div class="slides">
+    <!-- slides injected here at load by the inline module below -->
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+
+<script src="assets/widgets.js"></script>
+
+<script type="module">
+  const slidesEl = document.querySelector('.reveal .slides');
+
+  try {
+    const manifest = await (await fetch('./manifest.json')).json();
+    for (const slide of manifest.slides) {
+      const res = await fetch(slide.path);
+      if (!res.ok) { console.error(`[deck] ${slide.path} → ${res.status}`); continue; }
+      const text = await res.text();
+      const start = text.indexOf('<section');
+      slidesEl.insertAdjacentHTML('beforeend', start >= 0 ? text.slice(start) : text);
+    }
+  } catch (err) {
+    console.error('[deck] load failed:', err);
+    document.body.insertAdjacentHTML('afterbegin',
+      `<pre style="position:fixed;inset:0;color:#fff;background:#a00;padding:32px;font:14px ui-monospace,monospace;z-index:9999;white-space:pre-wrap">
+[deck] failed to load slides.
+
+This deck must be served over HTTP — fetch() does not work on file:// URIs.
+From the repo root:
+
+    python3 -m http.server 8000
+    open http://127.0.0.1:8000/aws-basics/
+
+Underlying error: ${err.message}
+</pre>`);
+    throw err;
+  }
+
+  if (typeof window.deckWidgetsInit === 'function') {
+    window.deckWidgetsInit(slidesEl);
+  }
+
+  await Reveal.initialize({
+    width: 1280, height: 720, margin: 0,
+    center: false, transition: 'fade',
+    hash: true,
+    slideNumber: 'c/t', showSlideNumber: 'speaker',
+    overview: true, help: true,
+    plugins: [ RevealNotes ],
+  });
+
+  // Speaker keyboard verb: "." steps the active slide's widget(s).
+  // Reveal owns Space + ArrowRight for navigation; "." is unbound.
+  // Widgets opt in by setting data-dc-step-key on the marker and
+  // listening for the "dc:step" custom event.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== '.' || e.metaKey || e.ctrlKey || e.altKey) return;
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+    const current = Reveal.getCurrentSlide();
+    if (!current) return;
+    current.querySelectorAll('[data-dc-step-key]').forEach(t =>
+      t.dispatchEvent(new CustomEvent('dc:step', { bubbles: false }))
+    );
+  });
+</script>
+
+</body>
+</html>
